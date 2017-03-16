@@ -8,15 +8,15 @@ import net.tomp2p.futures.BaseFutureListener;
  */
 public class PutListener implements BaseFutureListener {
 
-    private DirectCommunicationPeer dir;
+    private DirectCommunicationPeer peer;
 
-    public PutListener(DirectCommunicationPeer dir) {
-       this.dir = dir;
+    public PutListener(DirectCommunicationPeer peer) {
+       this.peer = peer;
     }
 
     public void operationComplete(BaseFuture future) throws Exception {
         if(future.isSuccess()){
-            dir.registered();
+            peer.registered();
         }
     }
 

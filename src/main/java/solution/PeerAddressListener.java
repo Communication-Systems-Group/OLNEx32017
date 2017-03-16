@@ -10,7 +10,7 @@ import net.tomp2p.peers.PeerAddress;
 /**
  * Created by Andri on 15.03.2017.
  */
-public class PeerAddressListener implements BaseFutureListener {
+public class PeerAddressListener implements BaseFutureListener<FutureGet> {
 
     private Peer peer;
     private String msg;
@@ -20,17 +20,16 @@ public class PeerAddressListener implements BaseFutureListener {
         this.msg = msg;
     }
 
-    public void operationComplete(BaseFuture future) throws Exception {
-
-        FutureGet fget = (FutureGet) future;
+    public void operationComplete(FutureGet future) throws Exception {
         if (future.isSuccess()) {
-            System.out.println("Max Powers has the address: " + fget.data().object());
-            PeerAddress address = (PeerAddress) fget.data().object();
+            System.out.println("Max Powers has the address: " + future.data().object());
+            PeerAddress address = (PeerAddress) future.data().object();
 
             FutureDirect fdirect = peer.sendDirect(address).object(msg).start();
-            fdirect.addListener(new BaseFutureListener<BaseFuture>() {
-                public void operationComplete(BaseFuture future) throws Exception {
+            fdirect.addListener(new BaseFutureListener<FutureDirect>() {
+                public void operationComplete(FutureDirect future) throws Exception {
                     System.out.println("Message Sent");
+                    future.object();
                 }
 
                 public void exceptionCaught(Throwable t) throws Exception {

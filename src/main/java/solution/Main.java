@@ -40,6 +40,7 @@ public class Main implements BaseFutureListener, MessageSink {
             messageLatch.await(2, TimeUnit.SECONDS);
 
         } finally {
+            Thread.sleep(30000);
             for (DirectCommunicationPeer p : peers) {
                 p.peer().shutdown();
             }
