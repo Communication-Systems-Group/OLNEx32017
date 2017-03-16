@@ -1,4 +1,4 @@
-package exercise3.solution;
+package solution;
 
 import net.tomp2p.futures.BaseFuture;
 import net.tomp2p.futures.BaseFutureListener;

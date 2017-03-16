@@ -1,12 +1,7 @@
-package exercise3.solution;
+package solution;
 
-import net.tomp2p.dht.PeerBuilderDHT;
 import net.tomp2p.futures.BaseFuture;
 import net.tomp2p.futures.BaseFutureListener;
-import net.tomp2p.futures.FutureBootstrap;
-import net.tomp2p.p2p.PeerBuilder;
-import net.tomp2p.peers.Number160;
-import sun.util.resources.cldr.sg.CurrencyNames_sg;
 
 import java.io.IOException;
 import java.util.Random;

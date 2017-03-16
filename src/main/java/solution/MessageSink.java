@@ -1,4 +1,4 @@
-package exercise3.solution;
+package solution;
 
 /**
  * Created by Andri on 15.03.2017.

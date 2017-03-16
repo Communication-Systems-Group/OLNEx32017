@@ -1,6 +1,5 @@
-package exercise3.solution;
+package solution;
 
-import net.tomp2p.p2p.Peer;
 import net.tomp2p.peers.PeerAddress;
 import net.tomp2p.rpc.ObjectDataReply;
 
